@@ -175,6 +175,10 @@ vector<Customer*> loadDatabase() {
     ifstream file("orderdb.txt");
     vector<Customer*> customerList;
 
+    if (file.peek() == ifstream::traits_type::eof()) {
+        return customerList;
+    };
+
     while (!file.eof()) {
         string firstName;
         getline(file, firstName);
